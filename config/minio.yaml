@@ -1,0 +1,5 @@
+nyc_data:
+  folder_path: nyc_taxi_data
+datalake:
+  bucket_name_raw: raw-taxi
+  bucket_name_processed: processed-taxi
