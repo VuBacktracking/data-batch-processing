@@ -1,0 +1,54 @@
+2024-08-18 11:44:58,877 - ERROR - Error in extract_load: path in endpoint is not allowed
+2024-08-18 11:44:58,878 - ERROR - Error in main execution: path in endpoint is not allowed
+2024-08-18 11:46:27,979 - ERROR - Error in extract_load: path in endpoint is not allowed
+2024-08-18 11:46:27,979 - ERROR - Error in main execution: path in endpoint is not allowed
+2024-08-18 11:48:11,541 - ERROR - Error in extract_load: path in endpoint is not allowed
+2024-08-18 11:48:11,541 - ERROR - Error in main execution: path in endpoint is not allowed
+2024-08-18 11:50:09,357 - ERROR - Error in extract_load: path in endpoint is not allowed
+2024-08-18 11:50:09,357 - ERROR - Error in main execution: path in endpoint is not allowed
+2024-08-18 11:59:13,521 - ERROR - Error in extract_load: path in endpoint is not allowed
+2024-08-18 11:59:13,522 - ERROR - Error in main execution: path in endpoint is not allowed
+2024-08-18 12:01:47,807 - ERROR - Error in extract_load: path in endpoint is not allowed
+2024-08-18 12:01:47,807 - ERROR - Error in main execution: path in endpoint is not allowed
+2024-08-18 12:09:10,298 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:09:10,316 - INFO - Bucket raw created successfully.
+2024-08-18 12:09:10,316 - INFO - Found 5 Parquet files in yellow.
+2024-08-18 12:09:10,317 - INFO - Found 5 Parquet files in green.
+2024-08-18 12:37:42,629 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:37:42,638 - ERROR - Error in bucket creation/check: S3 operation failed; code: InvalidBucketName, message: The specified bucket is not valid., resource: /raw_taxi, request_id: 17ECBBFF51998C2B, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8
+2024-08-18 12:37:42,638 - ERROR - Error in extract_load: S3 operation failed; code: InvalidBucketName, message: The specified bucket is not valid., resource: /raw_taxi, request_id: 17ECBBFF51998C2B, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8
+2024-08-18 12:37:42,638 - ERROR - Error in main execution: S3 operation failed; code: InvalidBucketName, message: The specified bucket is not valid., resource: /raw_taxi, request_id: 17ECBBFF51998C2B, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8
+2024-08-18 12:39:44,464 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,485 - INFO - Bucket raw-taxi created successfully.
+2024-08-18 12:39:44,486 - INFO - Found 5 Parquet files in yellow.
+2024-08-18 12:39:44,486 - INFO - Found 5 Parquet files in green.
+2024-08-18 12:39:44,487 - INFO - Uploading nyc_taxi_data/2024/yellow/yellow_tripdata_2024-03.parquet to 2024/yellow/yellow_tripdata_2024-03.parquet
+2024-08-18 12:39:44,487 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,491 - INFO - Uploading nyc_taxi_data/2024/yellow/yellow_tripdata_2024-04.parquet to 2024/yellow/yellow_tripdata_2024-04.parquet
+2024-08-18 12:39:44,491 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,507 - INFO - Uploading nyc_taxi_data/2024/yellow/yellow_tripdata_2024-05.parquet to 2024/yellow/yellow_tripdata_2024-05.parquet
+2024-08-18 12:39:44,512 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,576 - INFO - Uploading nyc_taxi_data/2024/yellow/yellow_tripdata_2024-02.parquet to 2024/yellow/yellow_tripdata_2024-02.parquet
+2024-08-18 12:39:44,586 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,586 - INFO - Uploading nyc_taxi_data/2024/yellow/yellow_tripdata_2024-01.parquet to 2024/yellow/yellow_tripdata_2024-01.parquet
+2024-08-18 12:39:44,604 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,594 - INFO - Uploading nyc_taxi_data/2024/green/green_tripdata_2024-03.parquet to 2024/green/green_tripdata_2024-03.parquet
+2024-08-18 12:39:44,610 - INFO - Uploading nyc_taxi_data/2024/green/green_tripdata_2024-01.parquet to 2024/green/green_tripdata_2024-01.parquet
+2024-08-18 12:39:44,620 - INFO - Uploading nyc_taxi_data/2024/green/green_tripdata_2024-04.parquet to 2024/green/green_tripdata_2024-04.parquet
+2024-08-18 12:39:44,673 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,677 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,718 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,925 - INFO - Successfully uploaded nyc_taxi_data/2024/green/green_tripdata_2024-03.parquet
+2024-08-18 12:39:44,927 - INFO - Uploading nyc_taxi_data/2024/green/green_tripdata_2024-05.parquet to 2024/green/green_tripdata_2024-05.parquet
+2024-08-18 12:39:44,927 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:44,962 - INFO - Successfully uploaded nyc_taxi_data/2024/green/green_tripdata_2024-01.parquet
+2024-08-18 12:39:44,963 - INFO - Uploading nyc_taxi_data/2024/green/green_tripdata_2024-02.parquet to 2024/green/green_tripdata_2024-02.parquet
+2024-08-18 12:39:44,964 - INFO - Connection to MinIO established successfully.
+2024-08-18 12:39:45,019 - INFO - Successfully uploaded nyc_taxi_data/2024/green/green_tripdata_2024-04.parquet
+2024-08-18 12:39:45,395 - INFO - Successfully uploaded nyc_taxi_data/2024/green/green_tripdata_2024-05.parquet
+2024-08-18 12:39:45,636 - INFO - Successfully uploaded nyc_taxi_data/2024/green/green_tripdata_2024-02.parquet
+2024-08-18 12:39:46,959 - INFO - Successfully uploaded nyc_taxi_data/2024/yellow/yellow_tripdata_2024-02.parquet
+2024-08-18 12:39:46,984 - INFO - Successfully uploaded nyc_taxi_data/2024/yellow/yellow_tripdata_2024-01.parquet
+2024-08-18 12:39:47,037 - INFO - Successfully uploaded nyc_taxi_data/2024/yellow/yellow_tripdata_2024-05.parquet
+2024-08-18 12:39:47,062 - INFO - Successfully uploaded nyc_taxi_data/2024/yellow/yellow_tripdata_2024-04.parquet
+2024-08-18 12:39:47,074 - INFO - Successfully uploaded nyc_taxi_data/2024/yellow/yellow_tripdata_2024-03.parquet
