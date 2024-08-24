@@ -7,7 +7,7 @@ from pyspark.sql.functions import col, lit
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(".env")
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils.helpers import load_cfg
@@ -37,16 +37,24 @@ spark = SparkSession.builder \
 
 def drop_column(df, file):
     """
-    Drop columns 'store_and_fwd_flag'
+    Drop columns 'store_and_fwd_flag' and 'enhail_fee' if they exist in the DataFrame.
     """
     try:
+        # Check and drop 'store_and_fwd_flag' column if it exists
         if "store_and_fwd_flag" in df.columns:
             df = df.drop("store_and_fwd_flag")
-            logger.info(f"Dropped column store_and_fwd_flag from file: {file}")
+            logger.info(f"Dropped column 'store_and_fwd_flag' from file: {file}")
         else:
-            logger.info(f"Column store_and_fwd_flag not found in file: {file}")
+            logger.info(f"Column 'store_and_fwd_flag' not found in file: {file}")
+
+        # Check and drop 'ehail_fee' column if it exists
+        if "ehail_fee" in df.columns:
+            df = df.drop("ehail_fee")
+            logger.info(f"Dropped column 'ehail_fee' from file: {file}")
+        else:
+            logger.info(f"Column 'ehail_fee' not found in file: {file}")
     except Exception as e:
-        logger.error(f"Error dropping column from file {file}: {str(e)}")
+        logger.error(f"Error dropping columns from file {file}: {str(e)}")
         raise
     return df
 
@@ -70,7 +78,6 @@ def merge_taxi_zone(df, file, lookup_path):
         if "dropoff_latitude" not in df.columns:
             df = merge_and_rename(df, "DOLocationID", "dropoff_latitude", "dropoff_longitude")
 
-        df = df.dropna()
         logger.info(f"Merged data from file: {file}")
     except Exception as e:
         logger.error(f"Error merging taxi zone for file {file}: {str(e)}")
@@ -96,7 +103,6 @@ def process(df, file):
                .withColumn("PULocationID", col("PULocationID").cast("int")) \
                .withColumn("VendorID", col("VendorID").cast("int"))
 
-        df = df.dropna()
         logger.info(f"Processed data from file: {file}")
     except Exception as e:
         logger.error(f"Error processing data for file {file}: {str(e)}")
@@ -131,11 +137,15 @@ def transform_data(spark, endpoint_url, access_key, secret_key, bucket_raw, buck
                     green_df = drop_column(green_df, file)
                     green_df = merge_taxi_zone(green_df, file, lookup_path)
                     green_df = process(green_df, file)
+                    green_df.dropna()
 
                     # Construct the output path to match the raw data structure with the same filename
                     file_name = os.path.basename(file)  # Extracts the file name from the path
                     green_output_path = f"s3a://{bucket_processed}/{year}/green/{file_name}"
-                    green_df.write.mode("overwrite").parquet(green_output_path)
+                    green_df.write.\
+                        format('parquet').\
+                        mode("overwrite").\
+                        save(green_output_path)
                     logger.info(f"Saved processed data to {green_output_path}")
                 except Exception as e:
                     logger.error(f"Error processing green taxi file {file} for year {year}: {str(e)}")
@@ -151,11 +161,15 @@ def transform_data(spark, endpoint_url, access_key, secret_key, bucket_raw, buck
                     yellow_df = drop_column(yellow_df, file)
                     yellow_df = merge_taxi_zone(yellow_df, file, lookup_path)
                     yellow_df = process(yellow_df, file)
+                    yellow_df.dropna()
 
                     # Construct the output path to match the raw data structure with the same filename
                     file_name = os.path.basename(file)  # Extracts the file name from the path
                     yellow_output_path = f"s3a://{bucket_processed}/{year}/yellow/{file_name}"
-                    yellow_df.write.mode("overwrite").parquet(yellow_output_path)
+                    yellow_df.write.\
+                        format('parquet').\
+                        mode("overwrite").\
+                        save(yellow_output_path)
                     logger.info(f"Saved processed data to {yellow_output_path}")
                 except Exception as e:
                     logger.error(f"Error processing yellow taxi file {file} for year {year}: {str(e)}")
