@@ -1,0 +1,68 @@
+2024-08-24 14:07:43,856 - INFO - Connection to MinIO established successfully.
+2024-08-24 14:07:43,865 - INFO - Bucket processed-taxi already exists, skipping creation.
+2024-08-24 14:07:43,866 - INFO - Connection to MinIO established successfully.
+2024-08-24 14:07:43,874 - INFO - Listed Parquet files in bucket raw-taxi with prefix '2024/green/': ['2024/green/green_tripdata_2024-01.parquet', '2024/green/green_tripdata_2024-02.parquet', '2024/green/green_tripdata_2024-03.parquet', '2024/green/green_tripdata_2024-04.parquet', '2024/green/green_tripdata_2024-05.parquet']
+2024-08-24 14:07:43,875 - INFO - Connection to MinIO established successfully.
+2024-08-24 14:07:43,882 - INFO - Listed Parquet files in bucket raw-taxi with prefix '2024/yellow/': ['2024/yellow/yellow_tripdata_2024-01.parquet', '2024/yellow/yellow_tripdata_2024-02.parquet', '2024/yellow/yellow_tripdata_2024-03.parquet', '2024/yellow/yellow_tripdata_2024-04.parquet', '2024/yellow/yellow_tripdata_2024-05.parquet']
+2024-08-24 14:07:43,883 - INFO - Reading parquet file for green taxis: s3a://raw-taxi/2024/green/green_tripdata_2024-01.parquet
+2024-08-24 14:07:49,484 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/green/green_tripdata_2024-01.parquet
+2024-08-24 14:07:49,510 - INFO - Dropped column 'ehail_fee' from file: 2024/green/green_tripdata_2024-01.parquet
+2024-08-24 14:07:52,469 - INFO - Merged data from file: 2024/green/green_tripdata_2024-01.parquet
+2024-08-24 14:07:52,563 - INFO - Processed data from file: 2024/green/green_tripdata_2024-01.parquet
+2024-08-24 14:07:55,434 - INFO - Saved processed data to s3a://processed-taxi/2024/green/green_tripdata_2024-01.parquet
+2024-08-24 14:07:55,434 - INFO - Reading parquet file for green taxis: s3a://raw-taxi/2024/green/green_tripdata_2024-02.parquet
+2024-08-24 14:07:55,626 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/green/green_tripdata_2024-02.parquet
+2024-08-24 14:07:55,642 - INFO - Dropped column 'ehail_fee' from file: 2024/green/green_tripdata_2024-02.parquet
+2024-08-24 14:07:56,030 - INFO - Merged data from file: 2024/green/green_tripdata_2024-02.parquet
+2024-08-24 14:07:56,099 - INFO - Processed data from file: 2024/green/green_tripdata_2024-02.parquet
+2024-08-24 14:07:57,581 - INFO - Saved processed data to s3a://processed-taxi/2024/green/green_tripdata_2024-02.parquet
+2024-08-24 14:07:57,581 - INFO - Reading parquet file for green taxis: s3a://raw-taxi/2024/green/green_tripdata_2024-03.parquet
+2024-08-24 14:07:57,767 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/green/green_tripdata_2024-03.parquet
+2024-08-24 14:07:57,782 - INFO - Dropped column 'ehail_fee' from file: 2024/green/green_tripdata_2024-03.parquet
+2024-08-24 14:07:58,211 - INFO - Merged data from file: 2024/green/green_tripdata_2024-03.parquet
+2024-08-24 14:07:58,272 - INFO - Processed data from file: 2024/green/green_tripdata_2024-03.parquet
+2024-08-24 14:07:59,452 - INFO - Saved processed data to s3a://processed-taxi/2024/green/green_tripdata_2024-03.parquet
+2024-08-24 14:07:59,454 - INFO - Reading parquet file for green taxis: s3a://raw-taxi/2024/green/green_tripdata_2024-04.parquet
+2024-08-24 14:07:59,739 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/green/green_tripdata_2024-04.parquet
+2024-08-24 14:07:59,743 - INFO - Dropped column 'ehail_fee' from file: 2024/green/green_tripdata_2024-04.parquet
+2024-08-24 14:08:00,242 - INFO - Merged data from file: 2024/green/green_tripdata_2024-04.parquet
+2024-08-24 14:08:00,315 - INFO - Processed data from file: 2024/green/green_tripdata_2024-04.parquet
+2024-08-24 14:08:01,418 - INFO - Saved processed data to s3a://processed-taxi/2024/green/green_tripdata_2024-04.parquet
+2024-08-24 14:08:01,418 - INFO - Reading parquet file for green taxis: s3a://raw-taxi/2024/green/green_tripdata_2024-05.parquet
+2024-08-24 14:08:01,633 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/green/green_tripdata_2024-05.parquet
+2024-08-24 14:08:01,641 - INFO - Dropped column 'ehail_fee' from file: 2024/green/green_tripdata_2024-05.parquet
+2024-08-24 14:08:01,972 - INFO - Merged data from file: 2024/green/green_tripdata_2024-05.parquet
+2024-08-24 14:08:02,023 - INFO - Processed data from file: 2024/green/green_tripdata_2024-05.parquet
+2024-08-24 14:08:03,049 - INFO - Saved processed data to s3a://processed-taxi/2024/green/green_tripdata_2024-05.parquet
+2024-08-24 14:08:03,049 - INFO - Reading parquet file for yellow taxis: s3a://raw-taxi/2024/yellow/yellow_tripdata_2024-01.parquet
+2024-08-24 14:08:03,242 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/yellow/yellow_tripdata_2024-01.parquet
+2024-08-24 14:08:03,243 - INFO - Column 'ehail_fee' not found in file: 2024/yellow/yellow_tripdata_2024-01.parquet
+2024-08-24 14:08:03,524 - INFO - Merged data from file: 2024/yellow/yellow_tripdata_2024-01.parquet
+2024-08-24 14:08:03,573 - INFO - Processed data from file: 2024/yellow/yellow_tripdata_2024-01.parquet
+2024-08-24 14:08:08,726 - INFO - Saved processed data to s3a://processed-taxi/2024/yellow/yellow_tripdata_2024-01.parquet
+2024-08-24 14:08:08,727 - INFO - Reading parquet file for yellow taxis: s3a://raw-taxi/2024/yellow/yellow_tripdata_2024-02.parquet
+2024-08-24 14:08:08,853 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/yellow/yellow_tripdata_2024-02.parquet
+2024-08-24 14:08:08,854 - INFO - Column 'ehail_fee' not found in file: 2024/yellow/yellow_tripdata_2024-02.parquet
+2024-08-24 14:08:09,117 - INFO - Merged data from file: 2024/yellow/yellow_tripdata_2024-02.parquet
+2024-08-24 14:08:09,164 - INFO - Processed data from file: 2024/yellow/yellow_tripdata_2024-02.parquet
+2024-08-24 14:08:13,532 - INFO - Saved processed data to s3a://processed-taxi/2024/yellow/yellow_tripdata_2024-02.parquet
+2024-08-24 14:08:13,532 - INFO - Reading parquet file for yellow taxis: s3a://raw-taxi/2024/yellow/yellow_tripdata_2024-03.parquet
+2024-08-24 14:08:13,639 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/yellow/yellow_tripdata_2024-03.parquet
+2024-08-24 14:08:13,645 - INFO - Column 'ehail_fee' not found in file: 2024/yellow/yellow_tripdata_2024-03.parquet
+2024-08-24 14:08:13,930 - INFO - Merged data from file: 2024/yellow/yellow_tripdata_2024-03.parquet
+2024-08-24 14:08:13,974 - INFO - Processed data from file: 2024/yellow/yellow_tripdata_2024-03.parquet
+2024-08-24 14:08:18,439 - INFO - Saved processed data to s3a://processed-taxi/2024/yellow/yellow_tripdata_2024-03.parquet
+2024-08-24 14:08:18,439 - INFO - Reading parquet file for yellow taxis: s3a://raw-taxi/2024/yellow/yellow_tripdata_2024-04.parquet
+2024-08-24 14:08:18,538 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/yellow/yellow_tripdata_2024-04.parquet
+2024-08-24 14:08:18,538 - INFO - Column 'ehail_fee' not found in file: 2024/yellow/yellow_tripdata_2024-04.parquet
+2024-08-24 14:08:18,751 - INFO - Merged data from file: 2024/yellow/yellow_tripdata_2024-04.parquet
+2024-08-24 14:08:18,795 - INFO - Processed data from file: 2024/yellow/yellow_tripdata_2024-04.parquet
+2024-08-24 14:08:23,383 - INFO - Saved processed data to s3a://processed-taxi/2024/yellow/yellow_tripdata_2024-04.parquet
+2024-08-24 14:08:23,383 - INFO - Reading parquet file for yellow taxis: s3a://raw-taxi/2024/yellow/yellow_tripdata_2024-05.parquet
+2024-08-24 14:08:23,548 - INFO - Dropped column 'store_and_fwd_flag' from file: 2024/yellow/yellow_tripdata_2024-05.parquet
+2024-08-24 14:08:23,556 - INFO - Column 'ehail_fee' not found in file: 2024/yellow/yellow_tripdata_2024-05.parquet
+2024-08-24 14:08:23,793 - INFO - Merged data from file: 2024/yellow/yellow_tripdata_2024-05.parquet
+2024-08-24 14:08:23,839 - INFO - Processed data from file: 2024/yellow/yellow_tripdata_2024-05.parquet
+2024-08-24 14:08:28,347 - INFO - Saved processed data to s3a://processed-taxi/2024/yellow/yellow_tripdata_2024-05.parquet
+2024-08-24 14:08:28,347 - INFO - Finished transforming all data.
+2024-08-24 14:08:28,347 - INFO - Closing down clientserver connection

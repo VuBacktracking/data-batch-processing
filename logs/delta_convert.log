@@ -1,0 +1,77 @@
+2024-08-24 14:10:32,497 - INFO - Spark session successfully created.
+2024-08-24 14:10:32,499 - INFO - Connection to MinIO established successfully.
+2024-08-24 14:10:32,518 - INFO - Bucket delta-taxi already exists, skipping creation.
+2024-08-24 14:10:32,518 - INFO - Bucket 'delta-taxi' created or already exists.
+2024-08-24 14:10:32,518 - INFO - Connection to MinIO established successfully.
+2024-08-24 14:10:32,528 - INFO - Listed Parquet files in bucket processed-taxi with prefix '2024/': ['2024/green/green_tripdata_2024-01.parquet/part-00000-eb34f041-a238-4ec9-8e97-a0b396b95971-c000.snappy.parquet', '2024/green/green_tripdata_2024-02.parquet/part-00000-bd1bdcc2-571b-4e12-be36-43e1685f82aa-c000.snappy.parquet', '2024/green/green_tripdata_2024-03.parquet/part-00000-b77ccd42-e9e2-4dbb-88eb-b8b299557a48-c000.snappy.parquet', '2024/green/green_tripdata_2024-04.parquet/part-00000-9eedac63-ec5c-41ad-a8f4-2bb4821a20a4-c000.snappy.parquet', '2024/green/green_tripdata_2024-05.parquet/part-00000-8a53ef56-518b-43f3-a209-cf213b9487bc-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-01.parquet/part-00000-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-01.parquet/part-00001-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-01.parquet/part-00003-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-02.parquet/part-00000-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-02.parquet/part-00001-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-02.parquet/part-00003-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-03.parquet/part-00000-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-03.parquet/part-00001-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-03.parquet/part-00002-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-03.parquet/part-00003-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-04.parquet/part-00000-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-04.parquet/part-00001-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-04.parquet/part-00002-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-04.parquet/part-00003-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-05.parquet/part-00000-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-05.parquet/part-00001-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-05.parquet/part-00002-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet', '2024/yellow/yellow_tripdata_2024-05.parquet/part-00003-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet']
+2024-08-24 14:10:32,528 - INFO - Reading parquet file: 2024/green/green_tripdata_2024-01.parquet/part-00000-eb34f041-a238-4ec9-8e97-a0b396b95971-c000.snappy.parquet
+2024-08-24 14:10:38,233 - INFO - Saving delta file to: s3a://delta-taxi/2024/green/part-00000-eb34f041-a238-4ec9-8e97-a0b396b95971-c000.snappy.parquet
+2024-08-24 14:10:46,951 - INFO - Successfully converted 2024/green/green_tripdata_2024-01.parquet/part-00000-eb34f041-a238-4ec9-8e97-a0b396b95971-c000.snappy.parquet to delta format.
+2024-08-24 14:10:46,951 - INFO - Reading parquet file: 2024/green/green_tripdata_2024-02.parquet/part-00000-bd1bdcc2-571b-4e12-be36-43e1685f82aa-c000.snappy.parquet
+2024-08-24 14:10:47,286 - INFO - Saving delta file to: s3a://delta-taxi/2024/green/part-00000-bd1bdcc2-571b-4e12-be36-43e1685f82aa-c000.snappy.parquet
+2024-08-24 14:10:49,728 - INFO - Successfully converted 2024/green/green_tripdata_2024-02.parquet/part-00000-bd1bdcc2-571b-4e12-be36-43e1685f82aa-c000.snappy.parquet to delta format.
+2024-08-24 14:10:49,728 - INFO - Reading parquet file: 2024/green/green_tripdata_2024-03.parquet/part-00000-b77ccd42-e9e2-4dbb-88eb-b8b299557a48-c000.snappy.parquet
+2024-08-24 14:10:50,016 - INFO - Saving delta file to: s3a://delta-taxi/2024/green/part-00000-b77ccd42-e9e2-4dbb-88eb-b8b299557a48-c000.snappy.parquet
+2024-08-24 14:10:52,064 - INFO - Successfully converted 2024/green/green_tripdata_2024-03.parquet/part-00000-b77ccd42-e9e2-4dbb-88eb-b8b299557a48-c000.snappy.parquet to delta format.
+2024-08-24 14:10:52,064 - INFO - Reading parquet file: 2024/green/green_tripdata_2024-04.parquet/part-00000-9eedac63-ec5c-41ad-a8f4-2bb4821a20a4-c000.snappy.parquet
+2024-08-24 14:10:52,687 - INFO - Saving delta file to: s3a://delta-taxi/2024/green/part-00000-9eedac63-ec5c-41ad-a8f4-2bb4821a20a4-c000.snappy.parquet
+2024-08-24 14:10:54,902 - INFO - Successfully converted 2024/green/green_tripdata_2024-04.parquet/part-00000-9eedac63-ec5c-41ad-a8f4-2bb4821a20a4-c000.snappy.parquet to delta format.
+2024-08-24 14:10:54,902 - INFO - Reading parquet file: 2024/green/green_tripdata_2024-05.parquet/part-00000-8a53ef56-518b-43f3-a209-cf213b9487bc-c000.snappy.parquet
+2024-08-24 14:10:55,209 - INFO - Saving delta file to: s3a://delta-taxi/2024/green/part-00000-8a53ef56-518b-43f3-a209-cf213b9487bc-c000.snappy.parquet
+2024-08-24 14:10:57,428 - INFO - Successfully converted 2024/green/green_tripdata_2024-05.parquet/part-00000-8a53ef56-518b-43f3-a209-cf213b9487bc-c000.snappy.parquet to delta format.
+2024-08-24 14:10:57,428 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-01.parquet/part-00000-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet
+2024-08-24 14:10:57,861 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00000-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet
+2024-08-24 14:11:03,039 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-01.parquet/part-00000-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet to delta format.
+2024-08-24 14:11:03,039 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-01.parquet/part-00001-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet
+2024-08-24 14:11:03,244 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00001-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet
+2024-08-24 14:11:07,784 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-01.parquet/part-00001-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet to delta format.
+2024-08-24 14:11:07,785 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-01.parquet/part-00003-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet
+2024-08-24 14:11:07,928 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00003-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet
+2024-08-24 14:11:12,024 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-01.parquet/part-00003-8a4725ad-d4f7-40ef-9216-94e0072b900c-c000.snappy.parquet to delta format.
+2024-08-24 14:11:12,024 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-02.parquet/part-00000-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet
+2024-08-24 14:11:12,117 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00000-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet
+2024-08-24 14:11:15,945 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-02.parquet/part-00000-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet to delta format.
+2024-08-24 14:11:15,946 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-02.parquet/part-00001-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet
+2024-08-24 14:11:16,054 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00001-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet
+2024-08-24 14:11:19,869 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-02.parquet/part-00001-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet to delta format.
+2024-08-24 14:11:19,869 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-02.parquet/part-00003-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet
+2024-08-24 14:11:19,954 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00003-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet
+2024-08-24 14:11:23,750 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-02.parquet/part-00003-339761a9-8024-4ba0-ab08-475d841db628-c000.snappy.parquet to delta format.
+2024-08-24 14:11:23,750 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-03.parquet/part-00000-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet
+2024-08-24 14:11:23,956 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00000-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet
+2024-08-24 14:11:28,466 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-03.parquet/part-00000-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet to delta format.
+2024-08-24 14:11:28,466 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-03.parquet/part-00001-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet
+2024-08-24 14:11:28,545 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00001-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet
+2024-08-24 14:11:32,597 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-03.parquet/part-00001-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet to delta format.
+2024-08-24 14:11:32,597 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-03.parquet/part-00002-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet
+2024-08-24 14:11:32,717 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00002-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet
+2024-08-24 14:11:37,194 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-03.parquet/part-00002-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet to delta format.
+2024-08-24 14:11:37,194 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-03.parquet/part-00003-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet
+2024-08-24 14:11:37,273 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00003-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet
+2024-08-24 14:11:39,469 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-03.parquet/part-00003-95285cf0-f828-4897-b8ae-4c77f93d105a-c000.snappy.parquet to delta format.
+2024-08-24 14:11:39,469 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-04.parquet/part-00000-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet
+2024-08-24 14:11:39,710 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00000-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet
+2024-08-24 14:11:44,560 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-04.parquet/part-00000-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet to delta format.
+2024-08-24 14:11:44,560 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-04.parquet/part-00001-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet
+2024-08-24 14:11:44,657 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00001-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet
+2024-08-24 14:11:49,237 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-04.parquet/part-00001-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet to delta format.
+2024-08-24 14:11:49,237 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-04.parquet/part-00002-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet
+2024-08-24 14:11:49,451 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00002-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet
+2024-08-24 14:11:54,698 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-04.parquet/part-00002-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet to delta format.
+2024-08-24 14:11:54,699 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-04.parquet/part-00003-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet
+2024-08-24 14:11:54,902 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00003-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet
+2024-08-24 14:11:58,960 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-04.parquet/part-00003-433e2561-fbff-43fe-b2e7-1cfecd51f5ca-c000.snappy.parquet to delta format.
+2024-08-24 14:11:58,960 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-05.parquet/part-00000-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet
+2024-08-24 14:11:59,281 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00000-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet
+2024-08-24 14:12:03,927 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-05.parquet/part-00000-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet to delta format.
+2024-08-24 14:12:03,927 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-05.parquet/part-00001-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet
+2024-08-24 14:12:04,006 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00001-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet
+2024-08-24 14:12:08,100 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-05.parquet/part-00001-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet to delta format.
+2024-08-24 14:12:08,101 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-05.parquet/part-00002-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet
+2024-08-24 14:12:08,180 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00002-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet
+2024-08-24 14:12:12,516 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-05.parquet/part-00002-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet to delta format.
+2024-08-24 14:12:12,516 - INFO - Reading parquet file: 2024/yellow/yellow_tripdata_2024-05.parquet/part-00003-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet
+2024-08-24 14:12:12,632 - INFO - Saving delta file to: s3a://delta-taxi/2024/yellow/part-00003-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet
+2024-08-24 14:12:14,908 - INFO - Successfully converted 2024/yellow/yellow_tripdata_2024-05.parquet/part-00003-ebecf98f-2ff9-4dfa-9cd5-b2c48476fdd0-c000.snappy.parquet to delta format.
+2024-08-24 14:12:15,671 - INFO - Spark session stopped.
+2024-08-24 14:12:15,671 - INFO - Closing down clientserver connection
