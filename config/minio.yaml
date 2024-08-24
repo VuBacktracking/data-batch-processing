@@ -4,3 +4,4 @@ datalake:
   bucket_name_raw: raw-taxi
   bucket_name_processed: processed-taxi
   bucket_name_delta: delta-taxi
+  folder_name: batch
