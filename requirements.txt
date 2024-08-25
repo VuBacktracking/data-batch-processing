@@ -14,7 +14,7 @@ minio==7.1.16
 PyYAML==6.0.2
 dbt-core==1.6.5
 dbt-postgres==1.6.5
-great_expectations==0.17.21
+great_expectations==1.0.0
 # jupyterlab==4.0.6
 # apache-airflow==2.7.1
 # apache-airflow-providers-postgres==5.6.1
