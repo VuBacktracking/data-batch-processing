@@ -1,0 +1,19 @@
+dbt_taxi:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: v9
+      pass: v9
+      database: v9
+      schema: public
+    prod:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: v9
+      pass: v9
+      database: v9
+      schema: public
