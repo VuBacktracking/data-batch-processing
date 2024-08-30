@@ -90,8 +90,8 @@ You should see the connection is running like the image below in the port http:/
 - **Step 2. Create table and insert data into Database**
 
 ```bash
-python3 database-operations/create_table.py
-python3 database-operations/insert_table.py
+python3 datawarehouse_operations/create_schema.py
+python3 datawarehouse_operations/create_table.py
 ```
 
 In the PostgreSQL connection, you should see the database `v9` and the table `products` like the image below.

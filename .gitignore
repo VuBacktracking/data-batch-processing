@@ -3,3 +3,4 @@ jars/
 .env
 **/__pycache__/
 .vscode/
+logs/
