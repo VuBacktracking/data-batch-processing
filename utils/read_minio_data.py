@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, sum, when
 import os
 from dotenv import load_dotenv
-
 load_dotenv(".env")
 
 def print_dataframe_schema(endpoint_url, access_key, secret_key, bucket_name, file_path):
@@ -21,7 +21,9 @@ def print_dataframe_schema(endpoint_url, access_key, secret_key, bucket_name, fi
     df = spark.read.parquet(f"s3a://{bucket_name}/{file_path}")
     df.printSchema()
     df.show(5)
-    df.count()
+    # Count null values in each column
+    null_counts = df.select([sum(when(col(c).isNull(), 1).otherwise(0)).alias(c) for c in df.columns])
+    null_counts.show()
 
 if __name__ == "__main__":
     # Retrieve environment variables
