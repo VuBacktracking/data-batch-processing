@@ -37,7 +37,7 @@ spark = SparkSession.builder \
 
 def drop_column(df, file):
     """
-    Drop columns 'store_and_fwd_flag' and 'enhail_fee' if they exist in the DataFrame.
+    Drop columns 'store_and_fwd_flag' in the DataFrame.
     """
     try:
         # Check and drop 'store_and_fwd_flag' column if it exists
@@ -46,13 +46,6 @@ def drop_column(df, file):
             logger.info(f"Dropped column 'store_and_fwd_flag' from file: {file}")
         else:
             logger.info(f"Column 'store_and_fwd_flag' not found in file: {file}")
-
-        # Check and drop 'ehail_fee' column if it exists
-        if "ehail_fee" in df.columns:
-            df = df.drop("ehail_fee")
-            logger.info(f"Dropped column 'ehail_fee' from file: {file}")
-        else:
-            logger.info(f"Column 'ehail_fee' not found in file: {file}")
     except Exception as e:
         logger.error(f"Error dropping columns from file {file}: {str(e)}")
         raise
@@ -66,11 +59,18 @@ def merge_taxi_zone(df, file, lookup_path):
         df_lookup = spark.read.csv(lookup_path, header=True, inferSchema=True)
         
         def merge_and_rename(df, location_id, lat_col, long_col):
-            df = df.join(df_lookup, df[location_id] == df_lookup["LocationID"], "left") \
-                   .drop("LocationID", "Borough", "service_zone", "zone") \
-                   .withColumnRenamed("latitude", lat_col) \
-                   .withColumnRenamed("longitude", long_col)
+            # Perform the join operation
+            df = df.join(df_lookup, df[location_id] == df_lookup["LocationID"], "inner")
+            
+            # Drop unnecessary columns
+            columns_to_drop = ["LocationID", "Borough", "service_zone", "zone"]
+            df = df.drop(*columns_to_drop)
+            
+            # Rename the columns
+            df = df.withColumnRenamed("latitude", lat_col).withColumnRenamed("longitude", long_col)
+            
             return df
+
 
         if "pickup_latitude" not in df.columns:
             df = merge_and_rename(df, "PULocationID", "pickup_latitude", "pickup_longitude")
@@ -92,17 +92,25 @@ def process(df, file):
         if "green" in file:
             df = df.withColumnRenamed("lpep_pickup_datetime", "pickup_datetime") \
                    .withColumnRenamed("lpep_dropoff_datetime", "dropoff_datetime") \
+                   .withColumnRenamed("ehail_fee", "fee") \
                    .drop("trip_type")
         elif "yellow" in file:
             df = df.withColumnRenamed("tpep_pickup_datetime", "pickup_datetime") \
                    .withColumnRenamed("tpep_dropoff_datetime", "dropoff_datetime") \
-                   .drop("Airport_fee")
+                   .withColumnRenamed("Airport_fee", "fee") 
 
         df = df.withColumn("payment_type", col("payment_type").cast("int")) \
                .withColumn("DOLocationID", col("DOLocationID").cast("int")) \
                .withColumn("PULocationID", col("PULocationID").cast("int")) \
                .withColumn("VendorID", col("VendorID").cast("int"))
-
+        
+        if 'fee' in df.columns:
+            df = df.drop('fee')
+        
+        # Remove rows with missing data
+        df = df.na.drop()
+        # Reorder columns alphabetically
+        df = df.select(sorted(df.columns))
         logger.info(f"Processed data from file: {file}")
     except Exception as e:
         logger.error(f"Error processing data for file {file}: {str(e)}")
@@ -137,7 +145,6 @@ def transform_data(spark, endpoint_url, access_key, secret_key, bucket_raw, buck
                     green_df = drop_column(green_df, file)
                     green_df = merge_taxi_zone(green_df, file, lookup_path)
                     green_df = process(green_df, file)
-                    green_df.dropna()
 
                     # Construct the output path to match the raw data structure with the same filename
                     file_name = os.path.basename(file)  # Extracts the file name from the path
@@ -161,7 +168,6 @@ def transform_data(spark, endpoint_url, access_key, secret_key, bucket_raw, buck
                     yellow_df = drop_column(yellow_df, file)
                     yellow_df = merge_taxi_zone(yellow_df, file, lookup_path)
                     yellow_df = process(yellow_df, file)
-                    yellow_df.dropna()
 
                     # Construct the output path to match the raw data structure with the same filename
                     file_name = os.path.basename(file)  # Extracts the file name from the path
