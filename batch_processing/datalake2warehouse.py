@@ -125,18 +125,18 @@ def processing_dataframe(df, file_path):
     elif 'green' in file_path:
         df_final = df_final.withColumn('service_type', F.lit(2))  # Green taxi
 
-    # # Reorder columns to have year, month, dow at the front
-    # columns = [
-    #     'year', 'month', 'dow', 'vendor_id', 'rate_code_id', 'pickup_location_id',
-    #     'dropoff_location_id', 'payment_type_id', 'pickup_datetime', 'dropoff_datetime',
-    #     'pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 'dropoff_longitude',
-    #     'passenger_count', 'trip_distance', 'extra', 'mta_tax', 'fare_amount', 
-    #     'tip_amount', 'tolls_amount', 'total_amount', 'improvement_surcharge',
-    #     'congestion_surcharge', 'service_type'
-    # ]
+    # Reorder columns to have year, month, dow at the front
+    columns = [
+        'year', 'month', 'dow', 'vendor_id', 'rate_code_id', 'pickup_location_id',
+        'dropoff_location_id', 'payment_type_id', 'pickup_datetime', 'dropoff_datetime',
+        'pickup_latitude', 'pickup_longitude', 'dropoff_latitude', 'dropoff_longitude',
+        'passenger_count', 'trip_distance', 'extra', 'mta_tax', 'fare_amount', 
+        'tip_amount', 'tolls_amount', 'total_amount', 'improvement_surcharge',
+        'congestion_surcharge', 'service_type'
+    ]
     
-    # # Select columns in the specified order
-    # df_final = df_final.select(*columns)
+    # Select columns in the specified order
+    df_final = df_final.select(*columns)
     logging.info("Data processed successfully")
     return df_final
 
