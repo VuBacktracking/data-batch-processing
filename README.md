@@ -35,20 +35,20 @@ Before runing this script, ensure you have the following installed.\
 
 1. **Clone the repository**
 ```bash
-$ git clone https://github.com/VuBacktracking/data-batch-processing.git
-$ cd data-batch-processing
+git clone https://github.com/VuBacktracking/data-batch-processing.git
+cd data-batch-processing
 ```
 
 2. **Start our data streaming infrastructure**
 ```bash
-$ sudo service docker start
-$ docker compose -f docker-compose.yaml up -d
+sudo service docker start
+docker compose -f docker-compose.yaml up -d
 ```
 
 3. **Setup environment**
 ```bash
-$ python3 -m venv .venv
-$ pip install -r requirements.txt
+python3 -m venv .venv
+pip install -r requirements.txt
 ```
 
 Create `.env` file and paste your MINIO keys, SPARK_HOME in it.
