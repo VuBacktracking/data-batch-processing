@@ -1,6 +1,6 @@
 # Welcome to dbt project!
 <p align = "center">
-    <img src="/home/vuphan/Documents/data-batch-processing/assets/dbt_logo.jpg" alt="workflow" width = 60%>
+    <img src="../assets/dbt_logo.jpg" alt="workflow" width = 60%>
 </p>
 
 ### Using the starter project
