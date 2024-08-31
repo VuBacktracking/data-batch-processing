@@ -2,13 +2,13 @@
 
 ## Overview
 
-* Persist data to PostgreSQL.
-* Monitor changes to data using the Debezium Connector.
-* Stream data from a Kafka topic using PySpark (Spark Streaming).
-* Convert the streaming data to Delta Lake format.
-* Write the Delta Lake data to MinIO (AWS Object Storage).
-* Query the data with Trino.
-* Display the results in DBeaver.
+* Extract and Load Raw Data to MinIO Datalake
+* Transform Raw Data Using Apache Spark
+* Batch Process Data to PostgreSQL Data Warehouse (Staging Area)
+* Validate Data Quality Using Great Expectations
+* Transform and Build Star Schema Using dbt (Data Build Tool)
+* Visualize and Query the Data Using DBeaver
+* Monitor and Automate the Pipeline
 
 ## Project structure
 
@@ -31,12 +31,12 @@ Before runing this script, ensure you have the following installed.\
 * Minio
 * DBeaver CE
 
-## Start
+## Setup
 
 1. **Clone the repository**
 ```bash
 $ git clone https://github.com/VuBacktracking/data-batch-processing.git
-$ cd stream-data-processing
+$ cd data-batch-processing
 ```
 
 2. **Start our data streaming infrastructure**
@@ -70,85 +70,68 @@ DB_STAGING_TABLE=staging.nyc_taxi
 4. **Services**
 
 * Postgres is accessible on the default port 5432.
-* Trino: http://localhost:8084.
 * MinIO: http://localhost:9001.
 
-## How to use?
+## Batch Processing
 
-- **Step 1. Start Debezium Connection**
+- **Step 1. Load the data (parquet format) from local to `raw` bucket in Datalake (MinIO)**
 ```bash
-cd debezium
-bash run-cdc.sh register_connector conf/products-cdc-config.json
+python3 elt_process/extract_load.py
 ```
-
-You should see the connection is running like the image below in the port http://localhost:8085.
-
 <p align = "center">
-    <img src="assets/debezium-connect.png" width = 80%>
+    <img src="assets/raw-bucket.png" width = 80%>
 </p>
 
-- **Step 2. Create table and insert data into Database**
+- **Step 2. Transform data**
 
+```bash
+python3 elt_process/transform.py
+```
+<p align = "center">
+    <img src="assets/processed-bucket.png" width = 80%>
+</p>
+
+- **Step 3 (Optional). Convert data into delta format**
+
+```bash
+python3 elt_process/convert-to-delta.py
+```
+<p align = "center">
+    <img src="assets/delta-bucket.png" width = 80%>
+</p>
+
+
+- **Step 4. Create schema and table in Datawarehouse**
 ```bash
 python3 datawarehouse_operations/create_schema.py
 python3 datawarehouse_operations/create_table.py
 ```
 
-In the PostgreSQL connection, you should see the database `v9` and the table `products` like the image below.
-
-<p align = "center">
-    <img src="assets/postgres.png" width = 80%>
-</p>
-
-- **Step 3. Start Streaming Data to MinIO**
+- **Step 5. Start batch processing data to Data Warehouse**
 ```bash
-python3 stream_processing/delta-to-minio.py
+python3 batch_processing/datalake2warehouse.py
 ```
-
-After putting data to MinIO storage, you can go to the port http://localhost:9001 and see the result like this image
-
 <p align = "center">
-    <img src="assets/minio.png" width = 80%>
+    <img src="assets/staging.png" width = 80%>
 </p>
 
-## Read streaming data with Trino and Dbeaver
+## Data Validation
 
-### Connect Trino in Dbeaver
+### Utilize Great Expectations to validate data quality
 
-<p align = "center">
-    <img src="assets/trino_connect.png" width = 80%>
-</p>
-
-### Query with Dbeaver
-
-Create your Trino schema and table in Dbeaver
-
-```sql
--- Create the schema if it doesn't exist
-CREATE SCHEMA IF NOT EXISTS lakehouse.products
-WITH (location = 's3://datalake/');
-
--- Create the products table
-CREATE TABLE IF NOT EXISTS lakehouse.products.products (
-    id VARCHAR,
-    name VARCHAR,
-    original_price DOUBLE,
-    price DOUBLE,
-    fulfillment_type VARCHAR,
-    brand VARCHAR,
-    review_count INTEGER,
-    rating_average DOUBLE,
-    favourite_count INTEGER,
-    current_seller VARCHAR,
-    number_of_images INTEGER,
-    category VARCHAR,
-    quantity_sold INTEGER,
-    discount DOUBLE
-) WITH (
-    location = 's3://datalake/products/'
-);
+```bash
+cd data_validation
 ```
 
+Then, run the `data_validation.py`
+```bash
+python data_validation.py
+```
 <p align = "center">
-    <img src="assets/trino_dbeaver.png" width = 80%>
+    <img src="assets/gx_validation.png" width = 80%>
+</p>
+
+## Transform the Data Warehouse using DBT
+<p align = "center">
+    <img src="assets/star-schema.png" width = 80%>
 </p>
