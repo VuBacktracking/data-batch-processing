@@ -3,12 +3,15 @@
     <img src="../assets/dbt_logo.jpg" alt="workflow" width = 60%>
 </p>
 
-### Using the starter project
+### Using the project
 
 Try running the following commands:
 - dbt run
 - dbt test
 
+<p align = "center">
+    <img src="../assets/dbt_run_test.png" alt="workflow">
+</p>
 
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
