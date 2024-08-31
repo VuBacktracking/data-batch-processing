@@ -1,0 +1,121 @@
+version: 2
+
+models:
+  - name: factTrip
+    description: "Fact Trip"
+    columns:
+      - name: vendor_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dimVendor')
+              field: vendor_key
+      - name: rate_code_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dimRateCode')
+              field: rate_code_key
+      - name: pickup_location_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dimPickpLocation')
+              field: pickup_location_id
+      - name: dropoff_location_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dimDropoffLocation')
+              field: dropoff_location_id
+      - name: payment_type_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dimPayment')
+              field: payment_type_key
+      - name: service_type_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dimService')
+              field: service_type_id
+      - name: passenger_count
+        tests:
+          - not_null
+      - name: trip_distance
+        tests:
+          - not_null
+      - name: total_amount
+        tests:
+          - not_null
+
+  - name: dimDropoffLocation
+    columns:
+      - name: dropoff_location_id
+        tests:
+          - unique
+          - not_null
+      - name: dropoff_latitude
+        tests:
+          - not_null
+      - name: dropoff_longitude
+        tests:
+          - not_null
+
+  - name: dimPayment
+    columns:
+      - name: payment_type_key
+        tests:
+          - unique
+          - not_null
+      - name: payment_description
+        description: "{{ doc('PaymentType') }}"
+        tests:
+          - not_null
+
+  - name: dimPickupLocation
+    columns:
+      - name: pickup_location_id
+        tests:
+          - unique
+          - not_null
+      - name: pickup_latitude
+        tests:
+          - not_null
+      - name: pickup_longitude
+        tests:
+          - not_null
+
+  - name: dimRateCode
+    columns:
+      - name: rate_code_key
+        tests:
+          - unique
+          - not_null
+      - name: rate_code_description
+        description: "{{ doc('RateCode') }}"
+        tests:
+          - not_null
+
+  - name: dimService
+    columns:
+      - name: service_type_id
+        tests:
+          - unique
+          - not_null
+      - name: service_name
+        description: "{{ doc('ServiceType') }}"
+        tests:
+          - not_null
+
+  - name: dimVendor
+    columns:
+      - name: vendor_key
+        tests:
+          - unique
+          - not_null
+      - name: vendor_name
+        description: "{{ doc('Vendor') }}"
+        tests:
+          - not_null
