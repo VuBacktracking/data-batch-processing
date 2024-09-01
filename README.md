@@ -74,6 +74,8 @@ DB_STAGING_TABLE=staging.nyc_taxi
 
 ## Batch Processing
 
+**Note**: You schould check your data directory's structure before running. You should modify the code based on your structure. If you want to integrate data from other years, you can modify the `extract_load.py` script within the `year` variable (list years).
+
 - **Step 1. Load the data (parquet format) from local to `raw` bucket in Datalake (MinIO)**
 ```bash
 python3 elt_process/extract_load.py
@@ -132,6 +134,7 @@ python data_validation.py
 </p>
 
 ## Transform the Data Warehouse using DBT
+Read [README.md](dbt_taxi/README.md) for more details.
 <p align = "center">
     <img src="assets/star-schema.png" width = 80%>
 </p>

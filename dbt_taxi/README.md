@@ -5,9 +5,23 @@
 
 ### Using the project
 
+- **Step 1. Install packages**
+```bash
+dbt deps
+```
+- **Step 2. Run dbt**
+
 Try running the following commands:
-- dbt run
-- dbt test
+```bash
+dbt run
+dbt test
+```
+
+- **Step 3 (Optional). Generate document**
+```bash
+dbt docs generate
+dbt docs serve
+```
 
 <p align = "center">
     <img src="../assets/dbt_run_test.png" alt="workflow">
